@@ -128,3 +128,7 @@ body {
     background-image: radial-gradient(#d0d0d0 1px, transparent 1px);
     background-size: 24px 24px;
 }
+
+body {
+    background-color: dark blue;
+}
