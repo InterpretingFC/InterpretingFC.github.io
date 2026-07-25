@@ -1,8 +1,8 @@
 body {
-    background: red !important;
-    color: white !important;
+    background-color: red;
+    color: white;
 }
 
-h1, h2, h3, p, li {
-    color: white !important;
+h1 {
+    color: yellow;
 }
