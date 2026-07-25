@@ -9,13 +9,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #222;
     line-height: 1.6;
-    background: #ffffff;
+    background-color: #f5f5f5;
+    background-image: radial-gradient(#d8d8d8 1px, transparent 1px);
+    background-size: 24px 24px;
 }
 
 header {
     text-align: center;
     padding: 50px 20px 30px;
-    background: #f7f9fb;
+    background: rgba(247, 249, 251, 0.9);
 }
 
 header h1 {
@@ -39,6 +41,22 @@ section {
 }
 
 
+.hero {
+    text-align: center;
+}
+
+
+.profile-image {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 25px;
+    border: 4px solid #12304a;
+}
+
+
 h2 {
     color: #12304a;
     margin-bottom: 15px;
@@ -56,16 +74,6 @@ ul {
 }
 
 
-.hero {
-    text-align: center;
-}
-
-
-.hero h2 {
-    font-size: 2rem;
-}
-
-
 .button {
     display: inline-block;
     margin-top: 20px;
@@ -73,7 +81,7 @@ ul {
     background: #12304a;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 30px;
     font-weight: bold;
 }
 
@@ -84,14 +92,14 @@ ul {
 
 
 a {
-    color: #12304a;
+    color: #1a73e8;
 }
 
 
 footer {
     text-align: center;
     padding: 25px;
-    background: #f7f9fb;
+    background: rgba(247, 249, 251, 0.9);
     color: #666;
     font-size: 0.9rem;
 }
@@ -113,22 +121,9 @@ footer {
         font-size: 1.7rem;
     }
 
-}
-.profile-image {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 25px;
-}
-}
-body {
-    background-color: #f5f5f5;
-    background-image: radial-gradient(#d0d0d0 1px, transparent 1px);
-    background-size: 24px 24px;
-}
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
 
-body {
-    background-color: dark blue;
 }
