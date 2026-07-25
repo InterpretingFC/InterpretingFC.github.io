@@ -123,3 +123,8 @@ footer {
     margin: 0 auto 25px;
 }
 }
+body {
+    background-color: #f5f5f5;
+    background-image: radial-gradient(#d0d0d0 1px, transparent 1px);
+    background-size: 24px 24px;
+}
