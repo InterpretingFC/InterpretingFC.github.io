@@ -11,20 +11,62 @@
     <meta name="description" content="Interpreting FC provides California Court Certified and NBCMI Certified Medical Interpreting services throughout Southern California.">
 
     <link rel="stylesheet" href="./style.css">
-    <script src="./language.js" defer></script>
+
+    <style>
+        .lang-es {
+            display: none;
+        }
+
+        .language-toggle {
+            display: inline-flex;
+            padding: 3px;
+            background: #ffffff;
+            border: 1px solid #12304a;
+            border-radius: 999px;
+            margin: 0 auto 20px;
+        }
+
+        .language-toggle button {
+            min-width: 70px;
+            padding: 7px 12px;
+            color: #12304a;
+            font: inherit;
+            font-size: 0.82rem;
+            font-weight: 800;
+            background: transparent;
+            border: 0;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .language-toggle button.active {
+            color: #ffffff;
+            background: #12304a;
+        }
+    </style>
 </head>
 
 <body>
 
     <header>
+
         <div class="language-toggle">
-            <button type="button" data-set-language="en" aria-pressed="true">
+            <button
+                type="button"
+                id="english-button"
+                class="active"
+            >
                 English
             </button>
-            <button type="button" data-set-language="es" aria-pressed="false">
+
+            <button
+                type="button"
+                id="spanish-button"
+            >
                 Español
             </button>
         </div>
+
     </header>
 
     <main>
@@ -36,35 +78,90 @@
         >
 
         <h2>
-            <span data-lang="en">Frank Capurro</span>
-            <span data-lang="es">Frank Capurro</span>
+            <span class="lang-en">Frank Capurro</span>
+            <span class="lang-es">Frank Capurro</span>
         </h2>
 
         <h3>
-            <span data-lang="en">California Court Certified & NBCMI Certified Medical Interpreter</span>
-            <span data-lang="es">Intérprete Certificado por los Tribunales de California y NBCMI</span>
+            <span class="lang-en">
+                California Court Certified & NBCMI Certified Medical Interpreter
+            </span>
+
+            <span class="lang-es">
+                Intérprete Certificado por los Tribunales de California y NBCMI
+            </span>
         </h3>
 
         <p>
-            <span data-lang="en">
+            <span class="lang-en">
                 Reliable, accurate, and confidential interpreting services
                 for legal, medical, and professional settings throughout
                 Southern California.
             </span>
 
-            <span data-lang="es">
+            <span class="lang-es">
                 Servicios de interpretación confiables, precisos y confidenciales
                 para entornos legales, médicos y profesionales en todo el
                 sur de California.
             </span>
         </p>
 
-        <a class="button" href="tel:+18182684483">
-            <span data-lang="en">📞 Call or Text Frank</span>
-            <span data-lang="es">📞 Llame o envíe un mensaje a Frank</span>
+        <a
+            class="button"
+            href="tel:+18182684483"
+        >
+            <span class="lang-en">
+                📞 Call or Text Frank
+            </span>
+
+            <span class="lang-es">
+                📞 Llame o envíe un mensaje a Frank
+            </span>
         </a>
 
     </main>
+
+    <script>
+        const englishButton = document.getElementById("english-button");
+        const spanishButton = document.getElementById("spanish-button");
+
+        const englishText = document.querySelectorAll(".lang-en");
+        const spanishText = document.querySelectorAll(".lang-es");
+
+        englishButton.addEventListener("click", function () {
+
+            englishText.forEach(function (element) {
+                element.style.display = "inline";
+            });
+
+            spanishText.forEach(function (element) {
+                element.style.display = "none";
+            });
+
+            englishButton.classList.add("active");
+            spanishButton.classList.remove("active");
+
+            document.documentElement.lang = "en";
+
+        });
+
+        spanishButton.addEventListener("click", function () {
+
+            englishText.forEach(function (element) {
+                element.style.display = "none";
+            });
+
+            spanishText.forEach(function (element) {
+                element.style.display = "inline";
+            });
+
+            spanishButton.classList.add("active");
+            englishButton.classList.remove("active");
+
+            document.documentElement.lang = "es";
+
+        });
+    </script>
 
 </body>
 
