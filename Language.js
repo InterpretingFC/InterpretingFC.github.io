@@ -1,3 +1,6 @@
+```javascript
+"use strict";
+
 document.addEventListener("DOMContentLoaded", () => {
     const languageButtons = document.querySelectorAll(
         "[data-set-language]"
@@ -42,3 +45,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setLanguage(savedLanguage || browserLanguage);
 });
+```
