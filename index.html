@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="./style.css">
 
     <style>
+        /* Language switch */
+
         .language-switch {
             text-align: center;
-            margin-bottom: 20px;
+            margin: 0;
         }
 
         .language-switch input {
@@ -74,30 +76,55 @@
 
 <body>
 
-    <header>
+    <header class="site-header">
 
-        <div class="language-switch">
+        <a href="index.html" class="site-logo">
+            Interpreting <span>FC</span>
+        </a>
 
-            <input
-                type="radio"
-                name="language"
-                id="english"
-                checked
-            >
+        <div class="header-right">
 
-            <input
-                type="radio"
-                name="language"
-                id="spanish"
-            >
+            <nav class="main-nav">
+                <a href="index.html" aria-current="page">
+                    <span class="english-text">Home</span>
+                    <span class="spanish-text">Inicio</span>
+                </a>
 
-            <label for="english">
-                English
-            </label>
+                <a href="about.html">
+                    <span class="english-text">About</span>
+                    <span class="spanish-text">Sobre mí</span>
+                </a>
 
-            <label for="spanish">
-                Español
-            </label>
+                <a href="#contact">
+                    <span class="english-text">Contact</span>
+                    <span class="spanish-text">Contacto</span>
+                </a>
+            </nav>
+
+            <div class="language-switch">
+
+                <input
+                    type="radio"
+                    name="language"
+                    id="english"
+                    checked
+                >
+
+                <input
+                    type="radio"
+                    name="language"
+                    id="spanish"
+                >
+
+                <label for="english">
+                    English
+                </label>
+
+                <label for="spanish">
+                    Español
+                </label>
+
+            </div>
 
         </div>
 
@@ -163,4 +190,3 @@
 </body>
 
 </html>
-```
