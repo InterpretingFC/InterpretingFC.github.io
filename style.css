@@ -415,3 +415,6 @@ body[data-language="es"] .lang-en {
         align-self: flex-end;
     }
 }
+
+
+/* Language switching */ [data-lang="en"], [data-lang="es"] { display: none; } html[lang="en"] [data-lang="en"] { display: inline; } html[lang="es"] [data-lang="es"] { display: inline; } /* Language toggle */ .language-toggle { display: flex; justify-content: center; gap: 8px; margin: 15px 0; } .language-toggle button { padding: 6px 12px; border: 1px solid #ccc; border-radius: 6px; background: white; cursor: pointer; } .language-toggle button[aria-pressed="true"] { font-weight: bold; }
