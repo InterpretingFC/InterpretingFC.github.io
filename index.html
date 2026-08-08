@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,35 +13,61 @@
     <link rel="stylesheet" href="./style.css">
 
     <style>
-        .lang-es {
+        .language-switch {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .language-switch input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .language-switch label {
+            display: inline-block;
+            padding: 7px 14px;
+            color: #12304a;
+            background: #ffffff;
+            border: 1px solid #12304a;
+            cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .language-switch label:first-of-type {
+            border-radius: 999px 0 0 999px;
+        }
+
+        .language-switch label:last-of-type {
+            border-radius: 0 999px 999px 0;
+        }
+
+        #english:checked ~ label[for="english"],
+        #spanish:checked ~ label[for="spanish"] {
+            color: #ffffff;
+            background: #12304a;
+        }
+
+        .spanish-text {
             display: none;
         }
 
-        .language-toggle {
-            display: inline-flex;
-            padding: 3px;
-            background: #ffffff;
-            border: 1px solid #12304a;
-            border-radius: 999px;
-            margin: 0 auto 20px;
+        #spanish:checked ~ .homepage-content .english-text {
+            display: none;
         }
 
-        .language-toggle button {
-            min-width: 70px;
-            padding: 7px 12px;
-            color: #12304a;
-            font: inherit;
-            font-size: 0.82rem;
-            font-weight: 800;
-            background: transparent;
-            border: 0;
-            border-radius: 999px;
-            cursor: pointer;
+        #spanish:checked ~ .homepage-content .spanish-text {
+            display: inline;
         }
 
-        .language-toggle button.active {
-            color: #ffffff;
-            background: #12304a;
+        #english:checked ~ .homepage-content .english-text {
+            display: inline;
+        }
+
+        #english:checked ~ .homepage-content .spanish-text {
+            display: none;
         }
     </style>
 </head>
@@ -50,26 +76,34 @@
 
     <header>
 
-        <div class="language-toggle">
-            <button
-                type="button"
-                id="english-button"
-                class="active"
-            >
-                English
-            </button>
+        <div class="language-switch">
 
-            <button
-                type="button"
-                id="spanish-button"
+            <input
+                type="radio"
+                name="language"
+                id="english"
+                checked
             >
+
+            <input
+                type="radio"
+                name="language"
+                id="spanish"
+            >
+
+            <label for="english">
+                English
+            </label>
+
+            <label for="spanish">
                 Español
-            </button>
+            </label>
+
         </div>
 
     </header>
 
-    <main>
+    <main class="homepage-content">
 
         <img
             src="IMG_8608.png"
@@ -78,28 +112,33 @@
         >
 
         <h2>
-            <span class="lang-en">Frank Capurro</span>
-            <span class="lang-es">Frank Capurro</span>
+            <span class="english-text">
+                Frank Capurro
+            </span>
+
+            <span class="spanish-text">
+                Frank Capurro
+            </span>
         </h2>
 
         <h3>
-            <span class="lang-en">
+            <span class="english-text">
                 California Court Certified & NBCMI Certified Medical Interpreter
             </span>
 
-            <span class="lang-es">
+            <span class="spanish-text">
                 Intérprete Certificado por los Tribunales de California y NBCMI
             </span>
         </h3>
 
         <p>
-            <span class="lang-en">
+            <span class="english-text">
                 Reliable, accurate, and confidential interpreting services
                 for legal, medical, and professional settings throughout
                 Southern California.
             </span>
 
-            <span class="lang-es">
+            <span class="spanish-text">
                 Servicios de interpretación confiables, precisos y confidenciales
                 para entornos legales, médicos y profesionales en todo el
                 sur de California.
@@ -110,60 +149,18 @@
             class="button"
             href="tel:+18182684483"
         >
-            <span class="lang-en">
+            <span class="english-text">
                 📞 Call or Text Frank
             </span>
 
-            <span class="lang-es">
+            <span class="spanish-text">
                 📞 Llame o envíe un mensaje a Frank
             </span>
         </a>
 
     </main>
 
-    <script>
-        const englishButton = document.getElementById("english-button");
-        const spanishButton = document.getElementById("spanish-button");
-
-        const englishText = document.querySelectorAll(".lang-en");
-        const spanishText = document.querySelectorAll(".lang-es");
-
-        englishButton.addEventListener("click", function () {
-
-            englishText.forEach(function (element) {
-                element.style.display = "inline";
-            });
-
-            spanishText.forEach(function (element) {
-                element.style.display = "none";
-            });
-
-            englishButton.classList.add("active");
-            spanishButton.classList.remove("active");
-
-            document.documentElement.lang = "en";
-
-        });
-
-        spanishButton.addEventListener("click", function () {
-
-            englishText.forEach(function (element) {
-                element.style.display = "none";
-            });
-
-            spanishText.forEach(function (element) {
-                element.style.display = "inline";
-            });
-
-            spanishButton.classList.add("active");
-            englishButton.classList.remove("active");
-
-            document.documentElement.lang = "es";
-
-        });
-    </script>
-
 </body>
 
 </html>
-
+```
