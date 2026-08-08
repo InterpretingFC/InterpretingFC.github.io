@@ -2,14 +2,11 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const languageButtons = document.querySelectorAll(
-        "[data-set-language]"
-    );
+    const languageButtons = document.querySelectorAll("[data-set-language]");
 
     function setLanguage(language) {
         const selectedLanguage = language === "es" ? "es" : "en";
 
-        document.body.dataset.language = selectedLanguage;
         document.documentElement.lang = selectedLanguage;
 
         languageButtons.forEach((button) => {
