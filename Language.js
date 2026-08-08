@@ -1,45 +1,58 @@
-```javascript
+
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
-    const languageButtons = document.querySelectorAll("[data-set-language]");
+document.addEventListener("DOMContentLoaded", function () {
+
+    const englishButton = document.querySelector(
+        '[data-set-language="en"]'
+    );
+
+    const spanishButton = document.querySelector(
+        '[data-set-language="es"]'
+    );
 
     function setLanguage(language) {
-        const selectedLanguage = language === "es" ? "es" : "en";
 
-        document.documentElement.lang = selectedLanguage;
+        if (language === "es") {
+            document.documentElement.lang = "es";
 
-        languageButtons.forEach((button) => {
-            const isSelected =
-                button.dataset.setLanguage === selectedLanguage;
+            englishButton.setAttribute("aria-pressed", "false");
+            spanishButton.setAttribute("aria-pressed", "true");
 
-            button.setAttribute(
-                "aria-pressed",
-                String(isSelected)
+            localStorage.setItem(
+                "interpreting-fc-language",
+                "es"
             );
-        });
 
-        localStorage.setItem(
-            "interpreting-fc-language",
-            selectedLanguage
-        );
+        } else {
+            document.documentElement.lang = "en";
+
+            englishButton.setAttribute("aria-pressed", "true");
+            spanishButton.setAttribute("aria-pressed", "false");
+
+            localStorage.setItem(
+                "interpreting-fc-language",
+                "en"
+            );
+        }
     }
 
-    languageButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            setLanguage(button.dataset.setLanguage);
-        });
+    englishButton.addEventListener("click", function () {
+        setLanguage("en");
+    });
+
+    spanishButton.addEventListener("click", function () {
+        setLanguage("es");
     });
 
     const savedLanguage = localStorage.getItem(
         "interpreting-fc-language"
     );
 
-    const browserLanguage =
-        navigator.language.toLowerCase().startsWith("es")
-            ? "es"
-            : "en";
+    if (savedLanguage === "es") {
+        setLanguage("es");
+    } else {
+        setLanguage("en");
+    }
 
-    setLanguage(savedLanguage || browserLanguage);
 });
-```
