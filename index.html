@@ -1,18 +1,24 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Interpreting FC | Legal & Medical Interpreter</title>
 
-    <meta name="description" content="Interpreting FC provides California Court Certified and NBCMI Certified Medical Interpreting services throughout Southern California.">
+    <meta
+        name="description"
+        content="Interpreting FC provides California Court Certified and NBCMI Certified Medical Interpreting services throughout Southern California."
+    >
 
     <link rel="stylesheet" href="./style.css">
 
     <style>
+
         /* LANGUAGE TOGGLE */
 
         .language-switch {
@@ -52,25 +58,24 @@
             background: #12304a;
         }
 
+
+        /* DEFAULT LANGUAGE */
+
         .spanish-text {
             display: none;
         }
 
-        #spanish:checked ~ .homepage-content .english-text {
+
+        /* SPANISH */
+
+        body:has(#spanish:checked) .english-text {
             display: none;
         }
 
-        #spanish:checked ~ .homepage-content .spanish-text {
+        body:has(#spanish:checked) .spanish-text {
             display: inline;
         }
 
-        #english:checked ~ .homepage-content .english-text {
-            display: inline;
-        }
-
-        #english:checked ~ .homepage-content .spanish-text {
-            display: none;
-        }
 
         /* CENTERED BRAND HEADER */
 
@@ -111,6 +116,7 @@
         .homepage-nav a:hover {
             color: #1a73e8;
         }
+
 
         /* HERO */
 
@@ -157,6 +163,7 @@
             margin-top: 28px;
         }
 
+
         /* SERVICE CARDS */
 
         .services-section {
@@ -197,6 +204,7 @@
             margin-bottom: 0;
         }
 
+
         /* SERVICE AREA */
 
         .service-area {
@@ -213,6 +221,7 @@
             font-size: 1.05rem;
             line-height: 1.75;
         }
+
 
         /* CONTACT */
 
@@ -239,6 +248,7 @@
             color: #12304a;
         }
 
+
         /* MOBILE */
 
         @media (max-width: 760px) {
@@ -259,7 +269,9 @@
             .service-grid {
                 grid-template-columns: 1fr;
             }
+
         }
+
 
         @media (max-width: 520px) {
 
@@ -278,11 +290,16 @@
             .homepage-hero h1 {
                 font-size: 2rem;
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
     <!-- HEADER -->
 
@@ -291,6 +308,7 @@
         <a href="index.html" class="homepage-brand">
             Interpreting <span>FC</span>
         </a>
+
 
         <nav class="homepage-nav">
 
@@ -310,6 +328,7 @@
             </a>
 
         </nav>
+
 
         <div class="language-switch">
 
@@ -339,9 +358,11 @@
     </header>
 
 
+
     <!-- HOMEPAGE -->
 
     <main class="homepage-content">
+
 
         <!-- HERO -->
 
@@ -354,6 +375,7 @@
             >
 
             <h1>
+
                 <span class="english-text">
                     Professional Interpreting Services
                 </span>
@@ -361,13 +383,17 @@
                 <span class="spanish-text">
                     Servicios Profesionales de Interpretación
                 </span>
+
             </h1>
+
 
             <h2>
                 Frank Capurro
             </h2>
 
+
             <h3>
+
                 <span class="english-text">
                     California Court Certified & NBCMI Certified Medical Interpreter
                 </span>
@@ -375,9 +401,12 @@
                 <span class="spanish-text">
                     Intérprete Certificado por los Tribunales de California y NBCMI
                 </span>
+
             </h3>
 
+
             <p>
+
                 <span class="english-text">
                     Reliable, accurate, and confidential interpreting services
                     for legal, medical, and professional settings throughout
@@ -389,12 +418,15 @@
                     para entornos legales, médicos y profesionales en todo el
                     sur de California.
                 </span>
+
             </p>
+
 
             <a
                 class="button"
                 href="tel:+18182684483"
             >
+
                 <span class="english-text">
                     📞 Call or Text Frank
                 </span>
@@ -402,9 +434,11 @@
                 <span class="spanish-text">
                     📞 Llame o envíe un mensaje a Frank
                 </span>
+
             </a>
 
         </section>
+
 
 
         <!-- SERVICES -->
@@ -412,6 +446,7 @@
         <section class="services-section">
 
             <h2>
+
                 <span class="english-text">
                     Interpreting Services
                 </span>
@@ -419,7 +454,9 @@
                 <span class="spanish-text">
                     Servicios de Interpretación
                 </span>
+
             </h2>
+
 
             <p class="services-intro">
 
@@ -435,11 +472,14 @@
 
             </p>
 
+
             <div class="service-grid">
+
 
                 <div class="service-card">
 
                     <h3>
+
                         <span class="english-text">
                             Legal Interpreting
                         </span>
@@ -447,9 +487,12 @@
                         <span class="spanish-text">
                             Interpretación Legal
                         </span>
+
                     </h3>
 
+
                     <p>
+
                         <span class="english-text">
                             California court-certified interpreting for legal
                             proceedings, immigration meetings, City Hall,
@@ -462,14 +505,17 @@
                             de inmigración, Ayuntamiento, consejos vecinales
                             y otros entornos oficiales.
                         </span>
+
                     </p>
 
                 </div>
 
 
+
                 <div class="service-card">
 
                     <h3>
+
                         <span class="english-text">
                             Medical Interpreting
                         </span>
@@ -477,9 +523,12 @@
                         <span class="spanish-text">
                             Interpretación Médica
                         </span>
+
                     </h3>
 
+
                     <p>
+
                         <span class="english-text">
                             NBCMI-certified medical interpreting for medical,
                             insurance, QME, IME, AME, and related professional
@@ -491,14 +540,17 @@
                             citas médicas, de seguros, QME, IME, AME y otros
                             servicios profesionales relacionados.
                         </span>
+
                     </p>
 
                 </div>
 
 
+
                 <div class="service-card">
 
                     <h3>
+
                         <span class="english-text">
                             Professional & Community
                         </span>
@@ -506,9 +558,12 @@
                         <span class="spanish-text">
                             Profesional y Comunitaria
                         </span>
+
                     </h3>
 
+
                     <p>
+
                         <span class="english-text">
                             Reliable interpreting for conferences, committees,
                             business meetings, escort interpreting, and other
@@ -520,13 +575,16 @@
                             reuniones de negocios, interpretación de acompañamiento
                             y otros entornos profesionales.
                         </span>
+
                     </p>
 
                 </div>
 
+
             </div>
 
         </section>
+
 
 
         <!-- SERVICE AREA -->
@@ -534,6 +592,7 @@
         <section class="service-area">
 
             <h2>
+
                 <span class="english-text">
                     Serving Southern California
                 </span>
@@ -541,9 +600,12 @@
                 <span class="spanish-text">
                     Sirviendo al Sur de California
                 </span>
+
             </h2>
 
+
             <p>
+
                 <span class="english-text">
                     Serving the San Fernando Valley, Ventura County,
                     Santa Clarita, and Greater Los Angeles, with flexibility
@@ -555,16 +617,22 @@
                     Santa Clarita y el área metropolitana de Los Ángeles,
                     con flexibilidad para viajar cuando sea necesario.
                 </span>
+
             </p>
 
         </section>
 
 
+
         <!-- CONTACT -->
 
-        <section id="contact" class="homepage-contact">
+        <section
+            id="contact"
+            class="homepage-contact"
+        >
 
             <h2>
+
                 <span class="english-text">
                     Let's Work Together
                 </span>
@@ -572,9 +640,12 @@
                 <span class="spanish-text">
                     Trabajemos Juntos
                 </span>
+
             </h2>
 
+
             <p>
+
                 <span class="english-text">
                     For availability, rates, or assignment inquiries,
                     please get in touch.
@@ -584,12 +655,15 @@
                     Para consultar disponibilidad, tarifas o asignaciones,
                     comuníquese conmigo.
                 </span>
+
             </p>
+
 
             <a
                 class="button"
                 href="tel:+18182684483"
             >
+
                 <span class="english-text">
                     📞 Call or Text Frank
                 </span>
@@ -597,11 +671,14 @@
                 <span class="spanish-text">
                     📞 Llame o envíe un mensaje a Frank
                 </span>
+
             </a>
 
         </section>
 
+
     </main>
+
 
 
     <!-- FOOTER -->
@@ -618,6 +695,8 @@
 
     </footer>
 
+
 </body>
 
 </html>
+```
