@@ -1,4 +1,4 @@
-
+```css
 * {
     box-sizing: border-box;
 }
@@ -30,14 +30,6 @@ header p {
     color: #555;
 }
 
-section {
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 12px;
-}
-
 main {
     max-width: 850px;
     margin: 30px auto;
@@ -45,6 +37,14 @@ main {
     background: rgba(255, 255, 255, 0.92);
     border-radius: 12px;
     text-align: center;
+}
+
+section {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 12px;
 }
 
 .hero {
@@ -90,22 +90,22 @@ footer {
     color: #666;
 }
 
-/* Language display */
+/* LANGUAGE SWITCHING */
 
 [data-lang="en"],
 [data-lang="es"] {
-    display: none;
+    display: none !important;
 }
 
 html[lang="en"] [data-lang="en"] {
-    display: inline;
+    display: inline !important;
 }
 
 html[lang="es"] [data-lang="es"] {
-    display: inline;
+    display: inline !important;
 }
 
-/* Language toggle */
+/* LANGUAGE TOGGLE */
 
 .language-toggle {
     display: inline-flex;
@@ -134,7 +134,7 @@ html[lang="es"] [data-lang="es"] {
     background: #12304a;
 }
 
-/* Shared header */
+/* SHARED HEADER */
 
 .site-header {
     width: 100%;
@@ -184,7 +184,7 @@ html[lang="es"] [data-lang="es"] {
     color: #1a73e8;
 }
 
-/* About page */
+/* ABOUT PAGE */
 
 .about-page {
     width: min(100% - 32px, 1000px);
@@ -286,7 +286,7 @@ html[lang="es"] [data-lang="es"] {
     color: #12304a;
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media (max-width: 760px) {
 
@@ -358,4 +358,4 @@ html[lang="es"] [data-lang="es"] {
         align-self: center;
     }
 }
-
+```
