@@ -1,6 +1,9 @@
-```css
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -14,124 +17,19 @@ body {
     background-size: 35px 35px;
 }
 
-header {
-    text-align: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #12304a;
-}
-
-header p {
-    color: #555;
-}
-
-main {
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 12px;
-    text-align: center;
-}
-
-section {
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 12px;
-}
-
-.hero {
-    text-align: center;
-}
-
-.profile-image {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 25px;
-    border: 4px solid #12304a;
-}
-
-h2 {
-    color: #12304a;
-}
-
-h3 {
-    color: #333;
-}
-
-.button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 14px 30px;
-    background: #1a73e8;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-}
-
-a {
-    color: #1a73e8;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #666;
-}
-
 /* LANGUAGE SWITCHING */
 
-[data-lang="en"],
-[data-lang="es"] {
-    display: none !important;
+.lang-en,
+.lang-es {
+    display: none;
 }
 
-html[lang="en"] [data-lang="en"] {
-    display: inline !important;
+html[lang="en"] .lang-en {
+    display: block;
 }
 
-html[lang="es"] [data-lang="es"] {
-    display: inline !important;
-}
-
-/* LANGUAGE TOGGLE */
-
-.language-toggle {
-    display: inline-flex;
-    padding: 3px;
-    background: #ffffff;
-    border: 1px solid #12304a;
-    border-radius: 999px;
-    margin: 0 auto;
-}
-
-.language-toggle button {
-    min-width: 42px;
-    padding: 7px 10px;
-    color: #12304a;
-    font: inherit;
-    font-size: 0.82rem;
-    font-weight: 800;
-    background: transparent;
-    border: 0;
-    border-radius: 999px;
-    cursor: pointer;
-}
-
-.language-toggle button[aria-pressed="true"] {
-    color: #ffffff;
-    background: #12304a;
+html[lang="es"] .lang-es {
+    display: block;
 }
 
 /* SHARED HEADER */
@@ -184,6 +82,62 @@ html[lang="es"] [data-lang="es"] {
     color: #1a73e8;
 }
 
+/* LANGUAGE TOGGLE */
+
+.language-toggle {
+    display: inline-flex;
+    padding: 3px;
+    background: #ffffff;
+    border: 1px solid #12304a;
+    border-radius: 999px;
+    margin: 0 auto;
+}
+
+.language-toggle button {
+    min-width: 42px;
+    padding: 7px 10px;
+    color: #12304a;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 800;
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.language-toggle button[aria-pressed="true"] {
+    color: #ffffff;
+    background: #12304a;
+}
+
+/* GENERAL */
+
+a {
+    color: #1a73e8;
+}
+
+h2 {
+    color: #12304a;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 30px;
+    background: #1a73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
 /* ABOUT PAGE */
 
 .about-page {
@@ -212,7 +166,7 @@ html[lang="es"] [data-lang="es"] {
 }
 
 .eyebrow {
-    margin-bottom: 10px;
+    margin: 0 0 10px;
     color: #1a73e8;
     font-size: 0.78rem;
     font-weight: 800;
@@ -233,8 +187,51 @@ html[lang="es"] [data-lang="es"] {
     line-height: 1.75;
 }
 
-.mission-card {
+/* EDUCATION */
+
+.education-card {
     margin-top: 70px;
+    padding: clamp(30px, 6vw, 56px);
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(18, 48, 74, 0.1);
+}
+
+.education-card h2 {
+    margin: 0 0 28px;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.education-list {
+    display: grid;
+    gap: 18px;
+}
+
+.education-item {
+    padding: 20px;
+    border-left: 5px solid #1a73e8;
+    background: #f7f9fb;
+    border-radius: 8px;
+}
+
+.education-item strong,
+.education-item span {
+    display: block;
+}
+
+.education-item strong {
+    color: #12304a;
+    font-size: 1.05rem;
+}
+
+.education-item span {
+    color: #555;
+}
+
+/* MISSION */
+
+.mission-card {
+    margin-top: 40px;
     padding: clamp(30px, 6vw, 56px);
     background: #ffffff;
     border-left: 7px solid #1a73e8;
@@ -258,6 +255,85 @@ html[lang="es"] [data-lang="es"] {
 .goal-word {
     color: #1a73e8;
 }
+
+/* GLOSSARY */
+
+.glossary-page {
+    width: min(100% - 32px, 1000px);
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.glossary-intro {
+    margin-bottom: 30px;
+    padding: clamp(30px, 6vw, 56px);
+    text-align: center;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(18, 48, 74, 0.1);
+}
+
+.glossary-intro h1 {
+    margin: 0 0 12px;
+    color: #12304a;
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    line-height: 1.05;
+}
+
+.glossary-intro p:last-child {
+    margin: 0 auto;
+    max-width: 650px;
+    font-size: 1.1rem;
+}
+
+.glossary-section {
+    margin: 30px 0;
+    padding: clamp(28px, 5vw, 48px);
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(18, 48, 74, 0.08);
+}
+
+.glossary-section h2 {
+    margin: 0 0 22px;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+}
+
+.glossary-list {
+    display: grid;
+    gap: 10px;
+}
+
+.glossary-list details {
+    background: #f7f9fb;
+    border: 1px solid rgba(18, 48, 74, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.glossary-list summary {
+    padding: 17px 20px;
+    color: #12304a;
+    font-weight: 800;
+    cursor: pointer;
+    list-style-position: inside;
+}
+
+.glossary-list summary:hover {
+    color: #1a73e8;
+}
+
+.glossary-list details[open] summary {
+    border-bottom: 1px solid rgba(18, 48, 74, 0.1);
+}
+
+.glossary-list details p {
+    margin: 0;
+    padding: 16px 20px 20px;
+    color: #444;
+}
+
+/* CTA */
 
 .about-cta {
     margin-top: 40px;
@@ -305,7 +381,8 @@ html[lang="es"] [data-lang="es"] {
         font-size: 0.9rem;
     }
 
-    .about-page {
+    .about-page,
+    .glossary-page {
         padding-top: 45px;
     }
 
@@ -324,8 +401,14 @@ html[lang="es"] [data-lang="es"] {
         text-align: left;
     }
 
-    .mission-card {
+    .education-card,
+    .mission-card,
+    .glossary-section {
         text-align: left;
+    }
+
+    .glossary-intro {
+        text-align: center;
     }
 
     .about-cta {
@@ -352,10 +435,14 @@ html[lang="es"] [data-lang="es"] {
 
     .main-nav {
         justify-content: space-between;
+        gap: 8px;
     }
 
     .language-toggle {
         align-self: center;
     }
+
+    .main-nav a {
+        font-size: 0.82rem;
+    }
 }
-```
