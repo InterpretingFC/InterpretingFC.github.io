@@ -17,374 +17,85 @@
         content="Interpreting FC provides California Court Certified and NBCMI Certified Medical Interpreting services throughout Southern California."
     >
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-
-        /* HOMEPAGE PROFILE IMAGE */
-
-        .homepage-hero .profile-image {
-            display: block;
-            width: 220px !important;
-            height: 220px !important;
-            max-width: 220px !important;
-            max-height: 220px !important;
-            min-width: 220px;
-            min-height: 220px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 4px solid #12304a;
-        }
-
-
-        /* LANGUAGE TOGGLE */
-
-        .language-switch {
-            display: inline-flex;
-            margin-top: 14px;
-        }
-
-        .language-switch input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .language-switch label {
-            display: inline-block;
-            padding: 7px 14px;
-            color: #12304a;
-            background: #ffffff;
-            border: 1px solid #12304a;
-            cursor: pointer;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 0.82rem;
-            font-weight: 800;
-        }
-
-        .language-switch label:first-of-type {
-            border-radius: 999px 0 0 999px;
-        }
-
-        .language-switch label:last-of-type {
-            border-radius: 0 999px 999px 0;
-        }
-
-        #english:checked ~ label[for="english"],
-        #spanish:checked ~ label[for="spanish"] {
-            color: #ffffff;
-            background: #12304a;
-        }
-
-
-        /* DEFAULT LANGUAGE */
-
-        .spanish-text {
-            display: none;
-        }
-
-
-        /* SPANISH */
-
-        body:has(#spanish:checked) .english-text {
-            display: none;
-        }
-
-        body:has(#spanish:checked) .spanish-text {
-            display: inline;
-        }
-
-
-        /* CENTERED BRAND HEADER */
-
-        .homepage-header {
-            text-align: center;
-            padding: 32px 20px 26px;
-        }
-
-        .homepage-brand {
-            display: block;
-            margin: 0;
-            color: #12304a;
-            font-size: clamp(2rem, 6vw, 3.2rem);
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            line-height: 1;
-            text-decoration: none;
-        }
-
-        .homepage-brand span {
-            color: #1a73e8;
-        }
-
-        .homepage-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 28px;
-            margin-top: 22px;
-        }
-
-        .homepage-nav a {
-            color: #12304a;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .homepage-nav a:hover {
-            color: #1a73e8;
-        }
-
-
-        /* HERO */
-
-        .homepage-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .homepage-hero {
-            text-align: center;
-            padding: 55px 25px 60px;
-        }
-
-        .homepage-hero h1 {
-            max-width: 800px;
-            margin: 0 auto 18px;
-            color: #12304a;
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            line-height: 1.1;
-        }
-
-        .homepage-hero h2 {
-            margin: 0 0 10px;
-            color: #12304a;
-            font-size: 1.5rem;
-        }
-
-        .homepage-hero h3 {
-            max-width: 750px;
-            margin: 0 auto 20px;
-            color: #333;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        .homepage-hero p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.08rem;
-            line-height: 1.75;
-        }
-
-        .homepage-hero .button {
-            margin-top: 28px;
-        }
-
-
-        /* SERVICE CARDS */
-
-        .services-section {
-            text-align: center;
-        }
-
-        .services-section > h2 {
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-
-        .services-intro {
-            max-width: 700px;
-            margin: 0 auto 35px;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: left;
-        }
-
-        .service-card {
-            padding: 26px 22px;
-            background: #ffffff;
-            border-radius: 14px;
-            border-top: 4px solid #1a73e8;
-            box-shadow: 0 8px 25px rgba(18, 48, 74, 0.08);
-        }
-
-        .service-card h3 {
-            margin-top: 0;
-            color: #12304a;
-        }
-
-        .service-card p {
-            margin-bottom: 0;
-        }
-
-
-        /* SERVICE AREA */
-
-        .service-area {
-            text-align: center;
-        }
-
-        .service-area h2 {
-            font-size: 2rem;
-        }
-
-        .service-area p {
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-            line-height: 1.75;
-        }
-
-
-        /* CONTACT */
-
-        .homepage-contact {
-            text-align: center;
-            background: #12304a;
-            color: #ffffff;
-        }
-
-        .homepage-contact h2 {
-            color: #ffffff;
-            margin-top: 0;
-            font-size: 2rem;
-        }
-
-        .homepage-contact p {
-            max-width: 650px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.88);
-        }
-
-        .homepage-contact .button {
-            background: #ffffff;
-            color: #12304a;
-        }
-
-
-        /* MOBILE */
-
-        @media (max-width: 760px) {
-
-            .homepage-header {
-                padding: 26px 15px 22px;
-            }
-
-            .homepage-nav {
-                gap: 18px;
-                font-size: 0.95rem;
-            }
-
-            .homepage-hero {
-                padding: 40px 20px 45px;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 520px) {
-
-            .homepage-brand {
-                font-size: 2rem;
-            }
-
-            .homepage-nav {
-                gap: 12px;
-                font-size: 0.82rem;
-            }
-
-            .language-switch {
-                margin-top: 12px;
-            }
-
-            .homepage-hero h1 {
-                font-size: 2rem;
-            }
-
-        }
-
-    </style>
+    <script src="language.js" defer></script>
 
 </head>
 
 
 <body>
 
-
     <!-- HEADER -->
 
     <header class="homepage-header">
 
-        <a href="index.html" class="homepage-brand">
+        <a
+            href="index.html"
+            class="homepage-brand"
+        >
             Interpreting <span>FC</span>
         </a>
 
 
-        <nav class="homepage-nav">
+        <nav
+            class="homepage-nav"
+            aria-label="Main navigation"
+        >
 
-            <a href="index.html">
-                <span class="english-text">Home</span>
-                <span class="spanish-text">Inicio</span>
+            <a
+                href="index.html"
+                aria-current="page"
+            >
+                <span class="lang-en">Home</span>
+                <span class="lang-es">Inicio</span>
             </a>
 
             <a href="about.html">
-                <span class="english-text">About</span>
-                <span class="spanish-text">Sobre mí</span>
+                <span class="lang-en">About Me</span>
+                <span class="lang-es">Sobre Mí</span>
             </a>
 
             <a href="glossary.html">
-                <span class="english-text">Glossary</span>
-                <span class="spanish-text">Glosario</span>
+                <span class="lang-en">Glossary</span>
+                <span class="lang-es">Glosario</span>
             </a>
 
             <a href="#contact">
-                <span class="english-text">Contact</span>
-                <span class="spanish-text">Contacto</span>
+                <span class="lang-en">Contact</span>
+                <span class="lang-es">Contacto</span>
             </a>
 
         </nav>
 
 
-        <div class="language-switch">
+        <div
+            class="language-toggle"
+            aria-label="Language selection"
+        >
 
-            <input
-                type="radio"
-                name="language"
-                id="english"
-                checked
+            <button
+                type="button"
+                data-set-language="en"
+                aria-pressed="true"
             >
+                EN
+            </button>
 
-            <input
-                type="radio"
-                name="language"
-                id="spanish"
+            <button
+                type="button"
+                data-set-language="es"
+                aria-pressed="false"
             >
-
-            <label for="english">
-                English
-            </label>
-
-            <label for="spanish">
-                Español
-            </label>
+                ES
+            </button>
 
         </div>
 
     </header>
 
 
-
-    <!-- HOMEPAGE -->
+    <!-- MAIN -->
 
     <main class="homepage-content">
 
@@ -399,13 +110,14 @@
                 class="profile-image"
             >
 
+
             <h1>
 
-                <span class="english-text">
+                <span class="lang-en">
                     Professional Interpreting Services
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Servicios Profesionales de Interpretación
                 </span>
 
@@ -419,11 +131,11 @@
 
             <h3>
 
-                <span class="english-text">
+                <span class="lang-en">
                     California Court Certified & NBCMI Certified Medical Interpreter
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Intérprete Certificado por los Tribunales de California y NBCMI
                 </span>
 
@@ -432,16 +144,16 @@
 
             <p>
 
-                <span class="english-text">
+                <span class="lang-en">
                     Reliable, accurate, and confidential interpreting services
                     for legal, medical, and professional settings throughout
                     Southern California.
                 </span>
 
-                <span class="spanish-text">
-                    Servicios de interpretación confiables, precisos y confidenciales
-                    para entornos legales, médicos y profesionales en todo el
-                    sur de California.
+                <span class="lang-es">
+                    Servicios de interpretación confiables, precisos y
+                    confidenciales para entornos legales, médicos y
+                    profesionales en todo el sur de California.
                 </span>
 
             </p>
@@ -452,11 +164,11 @@
                 href="tel:+18182684483"
             >
 
-                <span class="english-text">
+                <span class="lang-en">
                     📞 Call or Text Frank
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     📞 Llame o envíe un mensaje a Frank
                 </span>
 
@@ -465,18 +177,17 @@
         </section>
 
 
-
         <!-- SERVICES -->
 
         <section class="services-section">
 
             <h2>
 
-                <span class="english-text">
+                <span class="lang-en">
                     Interpreting Services
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Servicios de Interpretación
                 </span>
 
@@ -485,12 +196,12 @@
 
             <p class="services-intro">
 
-                <span class="english-text">
+                <span class="lang-en">
                     Professional interpreting services tailored to legal,
                     medical, business, and community settings.
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Servicios profesionales de interpretación para entornos
                     legales, médicos, empresariales y comunitarios.
                 </span>
@@ -505,11 +216,11 @@
 
                     <h3>
 
-                        <span class="english-text">
+                        <span class="lang-en">
                             Legal Interpreting
                         </span>
 
-                        <span class="spanish-text">
+                        <span class="lang-es">
                             Interpretación Legal
                         </span>
 
@@ -518,13 +229,13 @@
 
                     <p>
 
-                        <span class="english-text">
+                        <span class="lang-en">
                             California court-certified interpreting for legal
                             proceedings, immigration meetings, City Hall,
                             neighborhood councils, and other official settings.
                         </span>
 
-                        <span class="spanish-text">
+                        <span class="lang-es">
                             Interpretación certificada por los tribunales de
                             California para procedimientos legales, reuniones
                             de inmigración, Ayuntamiento, consejos vecinales
@@ -536,16 +247,15 @@
                 </div>
 
 
-
                 <div class="service-card">
 
                     <h3>
 
-                        <span class="english-text">
+                        <span class="lang-en">
                             Medical Interpreting
                         </span>
 
-                        <span class="spanish-text">
+                        <span class="lang-es">
                             Interpretación Médica
                         </span>
 
@@ -554,13 +264,13 @@
 
                     <p>
 
-                        <span class="english-text">
+                        <span class="lang-en">
                             NBCMI-certified medical interpreting for medical,
                             insurance, QME, IME, AME, and related professional
                             appointments.
                         </span>
 
-                        <span class="spanish-text">
+                        <span class="lang-es">
                             Interpretación médica certificada por NBCMI para
                             citas médicas, de seguros, QME, IME, AME y otros
                             servicios profesionales relacionados.
@@ -571,16 +281,15 @@
                 </div>
 
 
-
                 <div class="service-card">
 
                     <h3>
 
-                        <span class="english-text">
+                        <span class="lang-en">
                             Professional & Community
                         </span>
 
-                        <span class="spanish-text">
+                        <span class="lang-es">
                             Profesional y Comunitaria
                         </span>
 
@@ -589,13 +298,13 @@
 
                     <p>
 
-                        <span class="english-text">
+                        <span class="lang-en">
                             Reliable interpreting for conferences, committees,
                             business meetings, escort interpreting, and other
                             professional settings.
                         </span>
 
-                        <span class="spanish-text">
+                        <span class="lang-es">
                             Interpretación confiable para conferencias, comités,
                             reuniones de negocios, interpretación de acompañamiento
                             y otros entornos profesionales.
@@ -611,18 +320,17 @@
         </section>
 
 
-
         <!-- SERVICE AREA -->
 
         <section class="service-area">
 
             <h2>
 
-                <span class="english-text">
+                <span class="lang-en">
                     Serving Southern California
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Sirviendo al Sur de California
                 </span>
 
@@ -631,13 +339,13 @@
 
             <p>
 
-                <span class="english-text">
+                <span class="lang-en">
                     Serving the San Fernando Valley, Ventura County,
                     Santa Clarita, and Greater Los Angeles, with flexibility
                     to travel when needed.
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Sirviendo al Valle de San Fernando, el condado de Ventura,
                     Santa Clarita y el área metropolitana de Los Ángeles,
                     con flexibilidad para viajar cuando sea necesario.
@@ -646,7 +354,6 @@
             </p>
 
         </section>
-
 
 
         <!-- CONTACT -->
@@ -658,11 +365,11 @@
 
             <h2>
 
-                <span class="english-text">
+                <span class="lang-en">
                     Let's Work Together
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Trabajemos Juntos
                 </span>
 
@@ -671,12 +378,12 @@
 
             <p>
 
-                <span class="english-text">
+                <span class="lang-en">
                     For availability, rates, or assignment inquiries,
                     please get in touch.
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     Para consultar disponibilidad, tarifas o asignaciones,
                     comuníquese conmigo.
                 </span>
@@ -689,11 +396,11 @@
                 href="tel:+18182684483"
             >
 
-                <span class="english-text">
+                <span class="lang-en">
                     📞 Call or Text Frank
                 </span>
 
-                <span class="spanish-text">
+                <span class="lang-es">
                     📞 Llame o envíe un mensaje a Frank
                 </span>
 
@@ -701,25 +408,26 @@
 
         </section>
 
-
     </main>
-
 
 
     <!-- FOOTER -->
 
     <footer>
 
-        <span class="english-text">
-            © Interpreting FC · Frank Capurro · California Court Certified & NBCMI Certified Medical Interpreter
-        </span>
+        <p>
 
-        <span class="spanish-text">
-            © Interpreting FC · Frank Capurro · Intérprete Certificado por los Tribunales de California y NBCMI
-        </span>
+            <span class="lang-en">
+                © 2026 Interpreting FC
+            </span>
+
+            <span class="lang-es">
+                © 2026 Interpreting FC
+            </span>
+
+        </p>
 
     </footer>
-
 
 </body>
 
