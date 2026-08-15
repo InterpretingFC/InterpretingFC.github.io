@@ -1,4 +1,3 @@
-
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -13,46 +12,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function setLanguage(language) {
 
-        if (language === "es") {
-            document.documentElement.lang = "es";
+        const selectedLanguage =
+            language === "es" ? "es" : "en";
 
-            englishButton.setAttribute("aria-pressed", "false");
-            spanishButton.setAttribute("aria-pressed", "true");
+        document.documentElement.lang = selectedLanguage;
 
-            localStorage.setItem(
-                "interpreting-fc-language",
-                "es"
+        if (englishButton && spanishButton) {
+
+            englishButton.setAttribute(
+                "aria-pressed",
+                selectedLanguage === "en" ? "true" : "false"
             );
 
-        } else {
-            document.documentElement.lang = "en";
-
-            englishButton.setAttribute("aria-pressed", "true");
-            spanishButton.setAttribute("aria-pressed", "false");
-
-            localStorage.setItem(
-                "interpreting-fc-language",
-                "en"
+            spanishButton.setAttribute(
+                "aria-pressed",
+                selectedLanguage === "es" ? "true" : "false"
             );
         }
+
+        localStorage.setItem(
+            "interpreting-fc-language",
+            selectedLanguage
+        );
     }
 
-    englishButton.addEventListener("click", function () {
-        setLanguage("en");
-    });
+    if (englishButton) {
+        englishButton.addEventListener("click", function () {
+            setLanguage("en");
+        });
+    }
 
-    spanishButton.addEventListener("click", function () {
-        setLanguage("es");
-    });
+    if (spanishButton) {
+        spanishButton.addEventListener("click", function () {
+            setLanguage("es");
+        });
+    }
 
     const savedLanguage = localStorage.getItem(
         "interpreting-fc-language"
     );
 
-    if (savedLanguage === "es") {
-        setLanguage("es");
-    } else {
-        setLanguage("en");
-    }
+    setLanguage(savedLanguage === "es" ? "es" : "en");
 
 });
