@@ -2,34 +2,45 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll("[data-set-language]");
-    const storageKey = "interpreting-fc-language";
 
     function setLanguage(language) {
         const selectedLanguage = language === "es" ? "es" : "en";
+
         document.documentElement.lang = selectedLanguage;
 
         buttons.forEach(function (button) {
             button.setAttribute(
                 "aria-pressed",
-                button.dataset.setLanguage === selectedLanguage ? "true" : "false"
+                button.getAttribute("data-set-language") === selectedLanguage
+                    ? "true"
+                    : "false"
             );
         });
 
-        localStorage.setItem(storageKey, selectedLanguage);
+        try {
+            localStorage.setItem(
+                "interpreting-fc-language",
+                selectedLanguage
+            );
+        } catch (error) {
+            // Language switching still works if browser storage is unavailable.
+        }
     }
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
-            setLanguage(button.dataset.setLanguage);
+            setLanguage(button.getAttribute("data-set-language"));
         });
     });
 
-    let savedLanguage = null;
+    let savedLanguage = "en";
+
     try {
-        savedLanguage = localStorage.getItem(storageKey);
+        savedLanguage =
+            localStorage.getItem("interpreting-fc-language") || "en";
     } catch (error) {
-        savedLanguage = null;
+        savedLanguage = "en";
     }
 
-    setLanguage(savedLanguage === "es" ? "es" : "en");
+    setLanguage(savedLanguage);
 });
