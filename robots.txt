@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://interpretingfc.com/sitemap.xml
