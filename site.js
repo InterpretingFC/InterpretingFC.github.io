@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!labels[value]) {
             return language === "es" ? "No especificado" : "Not specified";
         }
+
         return labels[value][language];
     }
 
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function setLanguage(language) {
         const selectedLanguage = language === "es" ? "es" : "en";
+
         document.documentElement.lang = selectedLanguage;
         updateLocalizedFormText(selectedLanguage);
 
@@ -87,7 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function localDateTimeMinimum() {
         const now = new Date();
         now.setSeconds(0, 0);
-        const localNow = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+
+        const localNow = new Date(
+            now.getTime() - now.getTimezoneOffset() * 60000
+        );
+
         return localNow.toISOString().slice(0, 16);
     }
 
@@ -113,18 +119,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function formatDateTime(value, language) {
         if (!value) {
-            return language === "es" ? "No especificada" : "Not specified";
+            return language === "es"
+                ? "No especificada"
+                : "Not specified";
         }
 
         const date = new Date(value);
+
         if (Number.isNaN(date.getTime())) {
             return value;
         }
 
-        return new Intl.DateTimeFormat(language === "es" ? "es-US" : "en-US", {
-            dateStyle: "medium",
-            timeStyle: "short"
-        }).format(date);
+        return new Intl.DateTimeFormat(
+            language === "es" ? "es-US" : "en-US",
+            {
+                dateStyle: "medium",
+                timeStyle: "short"
+            }
+        ).format(date);
     }
 
     if (inquiryForm) {
@@ -135,16 +147,39 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const language = document.documentElement.lang === "es" ? "es" : "en";
-            const name = document.getElementById("inquiry-name").value.trim();
-            const dateTime = document.getElementById("inquiry-datetime").value;
-            const type = document.getElementById("inquiry-type").value;
-            const format = document.getElementById("inquiry-format").value;
-            const location = document.getElementById("inquiry-location").value.trim();
-            const duration = document.getElementById("inquiry-duration").value.trim();
-            const details = document.getElementById("inquiry-details").value.trim();
-            const typeLabel = localizedLabel(typeLabels, type, language);
-            const formatLabel = localizedLabel(formatLabels, format, language);
+            const language =
+                document.documentElement.lang === "es" ? "es" : "en";
+
+            const name = document
+                .getElementById("inquiry-name")
+                .value.trim();
+
+            const dateTime =
+                document.getElementById("inquiry-datetime").value;
+
+            const type =
+                document.getElementById("inquiry-type").value;
+
+            const format =
+                document.getElementById("inquiry-format").value;
+
+            const location = document
+                .getElementById("inquiry-location")
+                .value.trim();
+
+            const duration = document
+                .getElementById("inquiry-duration")
+                .value.trim();
+
+            const details = document
+                .getElementById("inquiry-details")
+                .value.trim();
+
+            const typeLabel =
+                localizedLabel(typeLabels, type, language);
+
+            const formatLabel =
+                localizedLabel(formatLabels, format, language);
 
             let lines;
 
@@ -180,19 +215,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            const action = event.submitter && event.submitter.getAttribute("data-inquiry-action") === "text"
-                ? "text"
-                : "email";
+            const action =
+                event.submitter &&
+                event.submitter.getAttribute("data-inquiry-action") === "text"
+                    ? "text"
+                    : "email";
+
             const body = encodeURIComponent(lines.join("\n"));
 
             if (action === "text") {
                 if (inquiryStatus) {
-                    inquiryStatus.textContent = language === "es"
-                        ? "Abriendo su aplicación de mensajes…"
-                        : "Opening your messaging app…";
+                    inquiryStatus.textContent =
+                        language === "es"
+                            ? "Abriendo su aplicación de mensajes…"
+                            : "Opening your messaging app…";
                 }
 
-                window.location.href = "sms:" + phoneNumber + "?body=" + body;
+                window.location.href =
+                    "sms:" + phoneNumber + "?body=" + body;
+
                 return;
             }
 
@@ -203,18 +244,110 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             if (inquiryStatus) {
-                inquiryStatus.textContent = language === "es"
-                    ? "Abriendo su aplicación de email…"
-                    : "Opening your email app…";
+                inquiryStatus.textContent =
+                    language === "es"
+                        ? "Abriendo su aplicación de email…"
+                        : "Opening your email app…";
             }
 
             const emailLink = document.createElement("a");
-            emailLink.href = "mailto:" + emailAddress + "?subject=" + subject + "&body=" + body;
+
+            emailLink.href =
+                "mailto:" +
+                emailAddress +
+                "?subject=" +
+                subject +
+                "&body=" +
+                body;
+
             emailLink.target = "_blank";
             emailLink.rel = "noopener noreferrer";
+
             document.body.appendChild(emailLink);
             emailLink.click();
             emailLink.remove();
         });
     }
+
+    /*
+     * SITE VISITOR COUNTER
+     *
+     * Counts visitors silently from visitor #1.
+     * Nothing is displayed publicly until the count reaches 100.
+     * Only runs on the real Interpreting FC website.
+     */
+    function trackSiteVisitors() {
+        const liveHosts = [
+            "interpretingfc.com",
+            "www.interpretingfc.com"
+        ];
+
+        if (!liveHosts.includes(window.location.hostname)) {
+            return;
+        }
+
+        const counterUrl =
+            "https://counterapi.com/api/interpretingfc.com/view/site-visitors?unique=true";
+
+        fetch(counterUrl, {
+            method: "GET",
+            mode: "cors",
+            cache: "no-store"
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error("Visitor counter request failed.");
+                }
+
+                return response.json();
+            })
+            .then(function (data) {
+                const count = Number(data && data.value);
+
+                /*
+                 * Keep the visitor counter completely invisible
+                 * until at least 100 visitors have been recorded.
+                 */
+                if (!Number.isFinite(count) || count < 100) {
+                    return;
+                }
+
+                const footer = document.querySelector("footer");
+
+                if (
+                    !footer ||
+                    document.getElementById("visitor-count")
+                ) {
+                    return;
+                }
+
+                const visitorLine = document.createElement("p");
+
+                visitorLine.id = "visitor-count";
+                visitorLine.className = "footer-visitor-count";
+
+                visitorLine.setAttribute(
+                    "aria-label",
+                    count + " unique site visitors"
+                );
+
+                visitorLine.innerHTML =
+                    '<span class="lang-en">Visitors: <strong>' +
+                    count.toLocaleString("en-US") +
+                    "</strong></span>" +
+                    '<span class="lang-es">Visitantes: <strong>' +
+                    count.toLocaleString("es-US") +
+                    "</strong></span>";
+
+                footer.appendChild(visitorLine);
+            })
+            .catch(function () {
+                /*
+                 * If the counter service ever fails,
+                 * the rest of the website remains unaffected.
+                 */
+            });
+    }
+
+    trackSiteVisitors();
 });
