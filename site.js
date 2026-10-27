@@ -269,84 +269,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /*
-     * SITE VISITOR COUNTER
-     *
-     * Counts visitors silently from visitor #1.
-     * Nothing is displayed publicly until the count reaches 100.
-     * Only runs on the real Interpreting FC website.
-     */
+    // The counter is our own small script; it needs no account or external SDK.
+    // Its numeric storage is separate from the unavailable counterapi.com.
     function trackSiteVisitors() {
-        const liveHosts = [
-            "interpretingfc.com",
-            "www.interpretingfc.com"
-        ];
-
-        if (!liveHosts.includes(window.location.hostname)) {
+        if (![
+            "interpretingfc.com", "www.interpretingfc.com"
+        ].includes(window.location.hostname)) {
             return;
         }
-
-        const counterUrl =
-            "https://counterapi.com/api/interpretingfc.com/view/site-visitors?unique=true";
-
-        fetch(counterUrl, {
-            method: "GET",
-            mode: "cors",
-            cache: "no-store"
-        })
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error("Visitor counter request failed.");
-                }
-
-                return response.json();
-            })
-            .then(function (data) {
-                const count = Number(data && data.value);
-
-                /*
-                 * Keep the visitor counter completely invisible
-                 * until at least 100 visitors have been recorded.
-                 */
-                if (!Number.isFinite(count) || count < 100) {
-                    return;
-                }
-
-                const footer = document.querySelector("footer");
-
-                if (
-                    !footer ||
-                    document.getElementById("visitor-count")
-                ) {
-                    return;
-                }
-
-                const visitorLine = document.createElement("p");
-
-                visitorLine.id = "visitor-count";
-                visitorLine.className = "footer-visitor-count";
-
-                visitorLine.setAttribute(
-                    "aria-label",
-                    count + " unique site visitors"
-                );
-
-                visitorLine.innerHTML =
-                    '<span class="lang-en">Visitors: <strong>' +
-                    count.toLocaleString("en-US") +
-                    "</strong></span>" +
-                    '<span class="lang-es">Visitantes: <strong>' +
-                    count.toLocaleString("es-US") +
-                    "</strong></span>";
-
-                footer.appendChild(visitorLine);
-            })
-            .catch(function () {
-                /*
-                 * If the counter service ever fails,
-                 * the rest of the website remains unaffected.
-                 */
-            });
+        const script = document.createElement("script");
+        script.src = "/visitor-counter.js";
+        script.async = true;
+        document.head.appendChild(script);
     }
 
     trackSiteVisitors();

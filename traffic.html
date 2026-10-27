@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-counter-dashboard>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>Site traffic | Interpreting FC</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main { max-width: 680px; margin: 8vh auto; padding: 32px; background: var(--paper); border-radius: 20px; box-shadow: var(--shadow); }
+        .eyebrow { text-transform: uppercase; letter-spacing: .15em; font-size: .8rem; font-weight: bold; color: var(--blue); }
+        h1 { color: var(--navy); margin: 8px 0 24px; }
+        #traffic-count { display: block; font-size: clamp(4rem,15vw,6rem); line-height: 1; font-weight: bold; color: var(--navy); margin: 12px 0; }
+        .muted, small { color: var(--muted); }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+        button { border: 1px solid var(--blue); border-radius: 8px; padding: 10px 16px; color: var(--blue); background: white; cursor: pointer; }
+        button.primary { background: var(--blue); color: white; }
+        button:disabled { opacity: .6; cursor: wait; }
+        button:focus-visible, a:focus-visible { outline: 3px solid #d69c36; outline-offset: 3px; }
+        hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+        #traffic-status[data-state="offline"] { color: #8c4417; }
+        @media(max-width: 720px) { main { margin: 24px 16px; padding: 24px; } }
+    </style>
+    <script src="visitor-counter.js" defer></script>
+    <script src="traffic.js" defer></script>
+</head>
+<body>
+<main>
+    <p class="eyebrow">Interpreting FC</p>
+    <h1>Your site traffic</h1>
+    <p class="muted">Estimated visitors since October 27, 2026</p>
+    <output id="traffic-count" aria-label="Estimated visitor count">—</output>
+    <p id="traffic-status" role="status" aria-live="polite">Checking the counter…</p>
+    <p id="traffic-checked" class="muted"></p>
+    <div class="actions">
+        <button id="traffic-refresh" class="primary" type="button">Refresh count</button>
+        <button id="traffic-download" type="button" disabled>Save count</button>
+    </div>
+    <p>Opening or refreshing this page never adds a visitor. Bookmark it to check your count without signing in.</p>
+    <hr>
+    <h2>Keep your own visits out</h2>
+    <p id="traffic-exclusion">Checking this browser…</p>
+    <button id="traffic-toggle" type="button">Exclude this browser</button>
+    <p><small>This setting applies to this browser only. Set it separately on your phone and computer. It prevents future additions; it does not subtract an existing visit.</small></p>
+    <hr>
+    <h2>What this number means</h2>
+    <p>Each browser is counted once using a flag stored on that browser. Refreshes and moves between pages do not add visitors. Different devices or cleared browser storage can count the same person again; blocked storage or blocked requests can miss visits.</p>
+    <p>The public website keeps the counter hidden until it reaches 100. This new counter does not include any unrecovered CounterAPI history.</p>
+    <p><small>No account is required. This unlisted stats page and its numeric count are public, not password protected. The number is stored by CountAPI at mileshilliard.com; no form details or personal identifiers are sent. As with any no-account public counter, the number can be manipulated and service availability is not guaranteed.</small></p>
+    <p><a href="index.html">← Back to Interpreting FC</a></p>
+</main>
+</body>
+</html>
