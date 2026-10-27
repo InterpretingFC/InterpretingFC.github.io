@@ -44,7 +44,7 @@ ambiguous network failures limit accuracy. Historic counts remain unknown.
 
 Use deterministic fixtures with Node's built-in test runner, real isolated
 provider keys for hit/read persistence and CORS checks, syntax checks and a
-targeted diff. Run `node --test tests/visitor-counter.test.cjs` and
+targeted diff. Run `node --test tests/visitor-counter.test.cjs tests/traffic-page.test.cjs` and
 `node --check visitor-counter.js && node --check traffic.js && node --check site.js`.
 Record failures before fixing them. Promote only after these checks pass.
 Guard the main-branch update against the exact baseline; inspect a changed head

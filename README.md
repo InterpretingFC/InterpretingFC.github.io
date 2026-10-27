@@ -5,7 +5,7 @@
 Open **https://interpretingfc.com/traffic.html** to read the count. No login is
 needed and opening or refreshing stats does not add visitors. Bookmark the
 page. Use **Exclude this browser** on each of your devices to keep your own
-future visits out. **Save count** downloads a dated JSON receipt.
+future visits out. The page dates its last successful count check.
 
 The existing `site.js` loads `visitor-counter.js` on the five public pages.
 It counts each browser once using first-party local storage, then only reads
@@ -45,6 +45,6 @@ system and someone who knows the key can alter its value.
 ### Verification
 
 The reproducible tests are retained in `counter-tests.zip`; extract it into
-the repository root, then run `node --test tests/visitor-counter.test.cjs`
+the repository root, then run `node --test tests/visitor-counter.test.cjs tests/traffic-page.test.cjs`
 and syntax-check the three JS files. Acceptance criteria and invariants are in `COUNTER_ACCEPTANCE.md`.
 The dated verification receipt documents actual outcomes and remaining limits.
