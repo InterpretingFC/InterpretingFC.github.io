@@ -67,6 +67,18 @@ read-only refresh, exclusion and blocked storage. The original 17 core tests
 and provider proof carry forward because `visitor-counter.js` and their
 dependencies are unchanged. Syntax checks were rerun for the changed stats
 script. Updated UI publication is verified separately in the final handoff.
+
+FAILURE preserved from final browser QA: after successful deployment of
+`7101ecd978a545c6ce6ce0758f15daabe6f8bf47` (workflow `40490451501`), the CDN
+served the new HTML with the older cached traffic.js. The browser reported
+`TypeError: Cannot read properties of null (reading 'addEventListener')`
+at traffic.js:51:14, referencing the removed optional download button.
+Repair: give the script URL a version query (`traffic.js?v=20261027-2`) so
+the HTML loads the corresponding script despite an older cached URL. Counting
+source and stats script bytes remain unchanged, so the 17+6 deterministic
+checks and isolated provider proof remain applicable. Final live browser
+initialization and refresh must pass on the versioned-script page before
+reporting completion.
 The connected GitHub write returned HTTP 403 (`Resource not accessible by
 integration`); unauthenticated Git push was also unavailable. Browser upload
 uses the existing signed-in GitHub account. Test sources are retained in
@@ -84,7 +96,7 @@ SHA-256:
 | visitor-counter.js | a5ed4465ffbba80ca4ad11deba7565bc225ec983b0d88977b27ef3aae2081bdb |
 | traffic.js | e35ad7297c48775324683afe8748c675ce0f317d503774265ed36507d7f3a585 |
 | site.js | c1e034581b5e32fc052a7eb1008dac75ab39fb41178f2f17a079596c7cc3f253 |
-| traffic.html | 736b78b1e4162918ca6b9aa9e138cee8e5e29d010c5a770a739283a19b0099fc |
+| traffic.html | 79001d27a22ec393724780cd1b737f003971b66da4423985d02913f2bc7c69fe |
 | tests/visitor-counter.test.cjs | 5f02072257d5131c002432baeac8a850db5b4d8cc56c0c96d802d3479528ccdd |
 | tests/provider-live.cjs | 4302e5b644fab226ac73f62f3597ff71a1f87f760d12e7d5caf9a76b2ff69b9d |
 | tests/traffic-page.test.cjs | e9c65ff13971139e2839b687eb3c777707790052b0a5b988fe665f17d8a5a693 |
